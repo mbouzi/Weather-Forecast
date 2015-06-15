@@ -48,7 +48,16 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
 	$scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
     
 
-	console.log($scope.weatherResult);
+	$scope.converTtoFahrenheit = function(degK) {
 
+		return Math.round((1.8 * (degK - 273)) + 32);
+
+	}
+
+	$scope.convertToDate = function(dt) {
+
+		return new Date(dt);
+
+	}
 
 }]);
